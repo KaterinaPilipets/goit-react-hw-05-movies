@@ -26,11 +26,9 @@ export const ContainerLink = styled.div`
   gap: 20px;
 `;
 
-// export const Info = styled.div`
-//   display: flex;
-//   align-items: baseline;
-//   gap: 8px;
-// `;
+export const Li = styled.li`
+  width: 200px;
+`;
 
 export const Year = styled.span`
   color: teal;

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from 'API';
-import { Galery } from './MovieInfo.styled';
+import { Galery, Li } from './MovieInfo.styled';
+
 const Cast = () => {
   const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w200';
   const { movieId } = useParams();
@@ -35,13 +36,13 @@ const Cast = () => {
     <div>
       <Galery>
         {curentMovie?.map(({ id, profile_path, name, character }) => (
-          <li key={id}>
+          <Li key={id}>
             {profile_path && (
               <img src={`${IMAGE_BASE_URL}${profile_path}`} alt={name} />
             )}
             <p>{name}</p>
             <p>{character}</p>
-          </li>
+          </Li>
         ))}
       </Galery>
     </div>

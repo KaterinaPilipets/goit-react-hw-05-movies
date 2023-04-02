@@ -1,6 +1,7 @@
 import { Suspense, useRef } from 'react';
 import { useLocation, NavLink, Outlet } from 'react-router-dom';
 import { StyledLink, Year, Container, ContainerLink } from './MovieInfo.styled';
+import PropTypes from 'prop-types';
 const MovieInfo = ({ movie }) => {
   const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w200';
   const location = useLocation();
@@ -51,4 +52,16 @@ const MovieInfo = ({ movie }) => {
     </>
   );
 };
+MovieInfo.propTypes = {
+  movie: PropTypes.shape({
+    poster_path: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    original_title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.array.isRequired,
+  }).isRequired,
+};
+
 export default MovieInfo;
